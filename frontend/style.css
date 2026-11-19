@@ -1,0 +1,65 @@
+:root {
+  --bg: #f8f4f1; --card: #fff; --ink: #2a1a18; --muted: #7a6a66; --accent: #5e0f10; --accent2: #dbbbaa;
+  --notes: #e7f6ec; --notes-ink: #1d6b3a; --ai: #fff3e0; --ai-ink: #8a4b00; --line: #eadfd9;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); }
+header { display: flex; align-items: center; gap: 14px; padding: 10px 24px; background: var(--card);
+         border-bottom: 3px solid var(--accent); }
+.logo { width: 54px; height: 54px; object-fit: contain; }
+h1 { margin: 0; font-size: 1.45rem; letter-spacing: .08em; color: var(--accent); }
+.disclosure { margin: 2px 0 0; font-size: .82rem; color: var(--muted); }
+
+main { display: grid; grid-template-columns: minmax(300px, 420px) 1fr; gap: 20px; padding: 20px 24px; height: calc(100vh - 80px); }
+@media (max-width: 860px) { main { grid-template-columns: 1fr; height: auto; } .chat { min-height: 70vh; } }
+
+.stage { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.avatar { position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 12px; overflow: hidden;
+          background: var(--accent2) url("media/ihslogo.png") center / 45% no-repeat; }
+.avatar img, .avatar video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#talkVid { opacity: 0; transition: opacity .12s; }
+body.talking #talkVid { opacity: 1; }
+body.novideo .avatar video { display: none; }
+body.novideo.talking .avatar img { animation: pulse .5s ease-in-out infinite alternate; }
+@keyframes pulse { from { transform: scale(1); } to { transform: scale(1.015); filter: brightness(1.05); } }
+
+.subtitle { min-height: 3em; font-size: .95rem; background: #f6eeea; border-radius: 10px; padding: 8px 12px; }
+.subtitle:empty { visibility: hidden; }
+.controls { display: flex; gap: 8px; }
+.controls button { flex: 1; }
+.status { font-size: .85rem; color: var(--muted); }
+.status.error { color: #c0392b; }
+.status.live::before { content: "● "; color: #e53935; }
+
+input, button { font: inherit; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); }
+button { cursor: pointer; background: #fff; }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+button:disabled { opacity: .5; cursor: default; }
+
+.chat { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+#messages { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding-right: 4px; }
+.msg { max-width: 88%; padding: 10px 14px; border-radius: 14px; line-height: 1.5; }
+.msg.student { align-self: flex-end; background: var(--accent); color: #fff; border-bottom-right-radius: 4px; }
+.msg.twin { align-self: flex-start; background: #f6f1ee; border-bottom-left-radius: 4px; }
+.msg.twin p { margin: .4em 0; }
+.msg.pending { color: var(--muted); font-style: italic; }
+.msg.error { background: #fdecea; color: #c0392b; }
+.badge { display: inline-block; font-size: .75rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; margin-bottom: 6px; }
+.badge.notes { background: var(--notes); color: var(--notes-ink); }
+.badge.ai { background: var(--ai); color: var(--ai-ink); }
+.katex-display { overflow-x: auto; overflow-y: hidden; }
+#textForm { display: flex; gap: 8px; }
+#textForm input { flex: 1; }
+.small { font-size: .8rem; color: var(--muted); }
+
+/* photo avatar (avatar.js): her photo with lip-sync on a canvas */
+#faceCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+body.photoavatar #faceCanvas { display: block; }
+body.photoavatar .avatar img, body.photoavatar .avatar video { display: none; }
+
+/* live LemonSlice avatar video (her real face, lip-synced) */
+#liveVid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; background: #000; }
+body.liveavatar #liveVid { display: block; }
+body.liveavatar #faceCanvas, body.liveavatar .avatar img { display: none; }
+
+#voiceMode { display: none; }

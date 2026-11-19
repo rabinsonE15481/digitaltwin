@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DIGITALTWIN · The Indian High Group of Schools</title>
+  <link rel="icon" type="image/png" href="media/ihslogo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img class="logo" src="media/ihslogo.png" alt="The Indian High Group of Schools">
+    <div>
+      <h1>DIGITALTWIN</h1>
+      <p class="disclosure">AI version of <b id="teacherName">your teacher</b> · <span id="subject">Physics</span> &amp; general knowledge ·
+        The Indian High Group of Schools.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="stage">
+      <div class="avatar">
+        <img id="faceImg" src="media/face.jpg" alt="Teacher avatar">
+        <video id="idleVid" src="media/idleloop.mp4" muted loop playsinline autoplay></video>
+        <video id="talkVid" src="media/talkloop.mp4" muted loop playsinline autoplay></video>
+        <canvas id="faceCanvas"></canvas>
+        <video id="liveVid" playsinline autoplay muted></video>
+      </div>
+      <div id="subtitle" class="subtitle"></div>
+
+      <div class="controls">
+        <button id="startBtn" class="primary">🎙️ Start live class</button>
+        <button id="stopBtn" hidden>■ End</button>
+      </div>
+      <div id="status" class="status">Not connected</div>
+      <div id="voiceMode" class="small"></div>
+      <audio id="twinAudio" autoplay></audio>
+      <audio id="cloneAudio"></audio>
+      <audio id="liveAudio" autoplay></audio>
+    </section>
+
+    <section class="chat">
+      <div id="messages"></div>
+      <form id="textForm">
+        <input id="textInput" placeholder="Ask anything: physics, general knowledge, study help…" autocomplete="off">
+        <button class="primary">Send</button>
+      </form>
+      <label class="small"><input type="checkbox" id="speakToggle" checked> Read typed answers aloud</label>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/livekit-client@2/dist/livekit-client.umd.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script type="module" src="avatar.js"></script>
+</body>
+</html>

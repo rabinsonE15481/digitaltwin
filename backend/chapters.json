@@ -1,0 +1,16 @@
+[
+  {"n": 1, "title": "Units and Measurement", "pages": 12,
+   "topics": "SI units, base and derived units, significant figures, rounding, dimensions, dimensional analysis, dimensional formulae, checking equations"},
+  {"n": 2, "title": "Motion in a Straight Line", "pages": 14,
+   "topics": "position, path length, displacement, speed, velocity, average and instantaneous velocity, acceleration, x-t and v-t graphs, kinematic equations for uniform acceleration, free fall"},
+  {"n": 3, "title": "Motion in a Plane", "pages": 22,
+   "topics": "scalars and vectors, vector addition and subtraction, resolution of vectors, unit vectors, motion in a plane, relative velocity in two dimensions, projectile motion, range, maximum height, uniform circular motion, centripetal acceleration"},
+  {"n": 4, "title": "Laws of Motion", "pages": 22,
+   "topics": "inertia, Newton's first second and third laws, force, momentum, impulse, conservation of momentum, equilibrium of a particle, friction, static and kinetic friction, circular motion, banking of roads, free body diagrams"},
+  {"n": 5, "title": "Work, Energy and Power", "pages": 21,
+   "topics": "work done by a force, scalar product, kinetic energy, work-energy theorem, variable force, potential energy, spring potential energy, conservation of mechanical energy, power, collisions, elastic and inelastic collisions"},
+  {"n": 6, "title": "Systems of Particles and Rotational Motion", "pages": 35,
+   "topics": "rigid body, centre of mass, motion of centre of mass, vector product, angular velocity, angular acceleration, torque, angular momentum, equilibrium of rigid body, moment of inertia, kinematics and dynamics of rotation about a fixed axis, conservation of angular momentum"},
+  {"n": 7, "title": "Gravitation", "pages": 17,
+   "topics": "Kepler's laws, universal law of gravitation, gravitational constant G, acceleration due to gravity, variation of g with height and depth, gravitational potential energy, escape speed, earth satellites, orbital speed, energy of an orbiting satellite"}
+]

@@ -1,0 +1,4 @@
+# never bake secrets into the image
+.env
+__pycache__/
+*.pyc
